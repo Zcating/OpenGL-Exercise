@@ -51,7 +51,6 @@
 
 /* Begin PBXFileReference section */
 		CB0F955E20596F4200F94F34 /* libGLEW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGLEW.a; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.a; sourceTree = "<group>"; };
-		CB0F9561205AB6BB00F94F34 /* matrixTest.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = matrixTest.cpp; sourceTree = "<group>"; };
 		CB0F9564205AB82400F94F34 /* vec4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		CB0F9565205AB82400F94F34 /* integer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
 		CB0F9566205AB82400F94F34 /* vector_relational.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vector_relational.hpp; sourceTree = "<group>"; };
@@ -318,8 +317,6 @@
 		CB17574B2048F20C001EA978 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		CB17574C2048F20C001EA978 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		CB17574D2048F20C001EA978 /* triangle.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.vsh; sourceTree = "<group>"; };
-		CB963DA52054BAF400BE41D1 /* Application.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
-		CB963DA62054BAF400BE41D1 /* Application.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Application.hpp; sourceTree = "<group>"; };
 		CB963DAB2056BD9D00BE41D1 /* image_helper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = image_helper.c; sourceTree = "<group>"; };
 		CB963DAC2056BD9D00BE41D1 /* stb_image_aug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_aug.h; sourceTree = "<group>"; };
 		CB963DAD2056BD9D00BE41D1 /* stbi_DDS_aug_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stbi_DDS_aug_c.h; sourceTree = "<group>"; };
@@ -693,11 +690,8 @@
 				CB17573C2048E953001EA978 /* main.cpp */,
 				CB17574C2048F20C001EA978 /* Shader.hpp */,
 				CB17574B2048F20C001EA978 /* Shader.cpp */,
-				CB963DA62054BAF400BE41D1 /* Application.hpp */,
-				CB963DA52054BAF400BE41D1 /* Application.cpp */,
 				CB963E0D2058167400BE41D1 /* GLTexture.hpp */,
 				CB963E0C2058167400BE41D1 /* GLTexture.cpp */,
-				CB0F9561205AB6BB00F94F34 /* matrixTest.cpp */,
 				CB17574A2048F20C001EA978 /* triangle.fsh */,
 				CB17574D2048F20C001EA978 /* triangle.vsh */,
 			);
