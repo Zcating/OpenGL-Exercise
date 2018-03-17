@@ -10,6 +10,7 @@
 		CB0F955F20596F4200F94F34 /* libGLEW.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0F955E20596F4200F94F34 /* libGLEW.a */; };
 		CB0F966B205C258C00F94F34 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB17573C2048E953001EA978 /* main.cpp */; };
 		CB1757452048EA64001EA978 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1757442048EA64001EA978 /* OpenGL.framework */; };
+		CB7B9D07205CE92E005E4609 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB7B9D05205CE92E005E4609 /* Camera.cpp */; };
 		CB963DBF2056BDB400BE41D1 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB17574B2048F20C001EA978 /* Shader.cpp */; };
 		CB963DF62056C1FA00BE41D1 /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = CB963DB42056BD9E00BE41D1 /* image_DXT.c */; };
 		CB963DF82056C1FA00BE41D1 /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = CB963DAB2056BD9D00BE41D1 /* image_helper.c */; };
@@ -317,6 +318,8 @@
 		CB17574B2048F20C001EA978 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		CB17574C2048F20C001EA978 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
 		CB17574D2048F20C001EA978 /* triangle.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.vsh; sourceTree = "<group>"; };
+		CB7B9D05205CE92E005E4609 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
+		CB7B9D06205CE92E005E4609 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
 		CB963DAB2056BD9D00BE41D1 /* image_helper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = image_helper.c; sourceTree = "<group>"; };
 		CB963DAC2056BD9D00BE41D1 /* stb_image_aug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_aug.h; sourceTree = "<group>"; };
 		CB963DAD2056BD9D00BE41D1 /* stbi_DDS_aug_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stbi_DDS_aug_c.h; sourceTree = "<group>"; };
@@ -694,6 +697,8 @@
 				CB963E0C2058167400BE41D1 /* GLTexture.cpp */,
 				CB17574A2048F20C001EA978 /* triangle.fsh */,
 				CB17574D2048F20C001EA978 /* triangle.vsh */,
+				CB7B9D05205CE92E005E4609 /* Camera.cpp */,
+				CB7B9D06205CE92E005E4609 /* Camera.hpp */,
 			);
 			path = OpenGLTest;
 			sourceTree = "<group>";
@@ -832,6 +837,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7B9D07205CE92E005E4609 /* Camera.cpp in Sources */,
 				CB0F966B205C258C00F94F34 /* main.cpp in Sources */,
 				CB963E0E2058167400BE41D1 /* GLTexture.cpp in Sources */,
 				CB963DBF2056BDB400BE41D1 /* Shader.cpp in Sources */,
