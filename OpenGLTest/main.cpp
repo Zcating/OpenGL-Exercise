@@ -13,6 +13,14 @@
 // GLFW
 #include <GLFW/glfw3.h>
 
+// GLM
+#include "glm.hpp"
+#include "geometric.hpp"
+#include "matrix.hpp"
+#include "transform.hpp"
+#include "type_ptr.hpp"
+#include "matrix_transform.hpp"
+
 // Other Libs
 #include "SOIL.h"
 
@@ -22,12 +30,24 @@
 #include "Camera.hpp"
 
 
+
 // Function prototypes
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode);
-
+void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
+
+// Value for key press
 float mixValue = 0;
+
+float deltaTime = 0.0f;
+float lastFrame = 0.0f;
+
+
+Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+float lastX = WIDTH / 2.0f;
+float lastY = HEIGHT / 2.0f;
+bool firstMouse = true;
 
 
 
@@ -51,6 +71,7 @@ int main()
     
     // Set the required callback functions
     glfwSetKeyCallback(window, key_callback);
+    glfwSetCursorPosCallback(window, mouse_callback);;
     
     // Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
     glewExperimental = GL_TRUE;
@@ -144,10 +165,14 @@ int main()
     
     GLTexture boxTexture = GLTexture("/Users/zcating/Project/MyGithub/OpenGLTest/container.jpg");
     GLTexture smileTexture = GLTexture("/Users/zcating/Project/MyGithub/OpenGLTest/awesomeface.png");
-    Camera camera;
+    
     // Game loop
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
+        
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
         
         // Render
         // Clear the colorbuffer
@@ -169,7 +194,7 @@ int main()
         
         glm::mat4 view;
         glm::mat4 projection;
-        view  = camera.updateTransform();
+        view = camera.GetViewMatrix();
         projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 
         ourShader.setMat4f("view", view);
@@ -212,6 +237,28 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
         mixValue -= 0.01;
     } else if (mode == GLFW_MOD_SUPER && key == GLFW_KEY_W) {
         glfwSetWindowShouldClose(window, GL_TRUE);
+    } else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        camera.processKeyboard(FORWARD, deltaTime);
+    } else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+        camera.processKeyboard(BACKWARD, deltaTime);
+    } else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+        camera.processKeyboard(LEFT, deltaTime);
+    } else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+        camera.processKeyboard(RIGHT, deltaTime);
     }
+}
+
+void mouse_callback(GLFWwindow* window, double x, double y)  {
+    if (firstMouse) {
+        lastX = x;
+        lastY = y;
+        firstMouse = false;
+    }
+    
+    float xoffset = x - lastX;
+    float yoffset = lastY - y;
+    lastX = x;
+    lastY = y;
+    camera.processMouseMovement(xoffset, yoffset);
 }
 
