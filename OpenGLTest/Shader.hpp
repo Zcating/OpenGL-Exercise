@@ -47,9 +47,10 @@ public:
     Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
     void use();
     
-    void setInt(std::string name, GLint object);
-    void setFloat(std::string name, GLfloat object);
-    void setMat4f(std::string name, glm::mat4 object);
+    void setInt(const std::string &name, GLint object);
+    void setFloat(const std::string &name, GLfloat object);
+    void setMat4f(const std::string &name, glm::mat4 object);
+    void setVec3(const std::string &name, glm::vec3 object);
 };
 
 #endif /* Shader_hpp */

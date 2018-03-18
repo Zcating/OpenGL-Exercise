@@ -2,11 +2,13 @@
 in vec2 aTextureCoordinate;
 out vec4 FragColor;
 
-uniform float mixValue;
-uniform sampler2D boxTexture;
-uniform sampler2D smileTexture;
+//uniform float mixValue;
+//uniform sampler2D boxTexture;
+//uniform sampler2D smileTexture;
+uniform vec3 boxColor;
+uniform vec3 lightColor;
 
 void main()
 {
-    FragColor = mix(texture(boxTexture, aTextureCoordinate), texture(smileTexture, vec2(aTextureCoordinate.x, aTextureCoordinate.y)), mixValue);
+    FragColor = vec4(lightColor * boxColor, 1.0);
 }

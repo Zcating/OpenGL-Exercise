@@ -320,6 +320,8 @@
 		CB17574D2048F20C001EA978 /* triangle.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = triangle.vsh; sourceTree = "<group>"; };
 		CB7B9D05205CE92E005E4609 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		CB7B9D06205CE92E005E4609 /* Camera.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Camera.hpp; sourceTree = "<group>"; };
+		CB7B9D32205EA19F005E4609 /* lamp.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lamp.vsh; sourceTree = "<group>"; };
+		CB7B9D33205EA1B2005E4609 /* lamp.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lamp.fsh; sourceTree = "<group>"; };
 		CB963DAB2056BD9D00BE41D1 /* image_helper.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = image_helper.c; sourceTree = "<group>"; };
 		CB963DAC2056BD9D00BE41D1 /* stb_image_aug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stb_image_aug.h; sourceTree = "<group>"; };
 		CB963DAD2056BD9D00BE41D1 /* stbi_DDS_aug_c.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stbi_DDS_aug_c.h; sourceTree = "<group>"; };
@@ -699,6 +701,8 @@
 				CB17574D2048F20C001EA978 /* triangle.vsh */,
 				CB7B9D05205CE92E005E4609 /* Camera.cpp */,
 				CB7B9D06205CE92E005E4609 /* Camera.hpp */,
+				CB7B9D32205EA19F005E4609 /* lamp.vsh */,
+				CB7B9D33205EA1B2005E4609 /* lamp.fsh */,
 			);
 			path = OpenGLTest;
 			sourceTree = "<group>";
