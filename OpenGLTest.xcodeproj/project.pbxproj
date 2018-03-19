@@ -11,6 +11,7 @@
 		CB0F966B205C258C00F94F34 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB17573C2048E953001EA978 /* main.cpp */; };
 		CB1757452048EA64001EA978 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1757442048EA64001EA978 /* OpenGL.framework */; };
 		CB7B9D07205CE92E005E4609 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB7B9D05205CE92E005E4609 /* Camera.cpp */; };
+		CB7C714F205FE95D0020C171 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1757462048EAFF001EA978 /* libglfw.3.2.dylib */; };
 		CB963DBF2056BDB400BE41D1 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB17574B2048F20C001EA978 /* Shader.cpp */; };
 		CB963DF62056C1FA00BE41D1 /* image_DXT.c in Sources */ = {isa = PBXBuildFile; fileRef = CB963DB42056BD9E00BE41D1 /* image_DXT.c */; };
 		CB963DF82056C1FA00BE41D1 /* image_helper.c in Sources */ = {isa = PBXBuildFile; fileRef = CB963DAB2056BD9D00BE41D1 /* image_helper.c */; };
@@ -23,7 +24,6 @@
 		CB963E0E2058167400BE41D1 /* GLTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB963E0C2058167400BE41D1 /* GLTexture.cpp */; };
 		CBC913952053FAEF003C14B6 /* libGLEW.2.1.0.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB1757472048EAFF001EA978 /* libGLEW.2.1.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		CBC913962053FAEF003C14B6 /* libglfw.3.2.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = CB1757462048EAFF001EA978 /* libglfw.3.2.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		CBC913992054105A003C14B6 /* libglfw.3.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC913982054105A003C14B6 /* libglfw.3.3.dylib */; };
 		CBC9139B20541708003C14B6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC9139A20541708003C14B6 /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
@@ -351,10 +351,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB7C714F205FE95D0020C171 /* libglfw.3.2.dylib in Frameworks */,
 				CB0F955F20596F4200F94F34 /* libGLEW.a in Frameworks */,
 				CB963E032056C21B00BE41D1 /* libSOILibrary.dylib in Frameworks */,
 				CBC9139B20541708003C14B6 /* GLUT.framework in Frameworks */,
-				CBC913992054105A003C14B6 /* libglfw.3.3.dylib in Frameworks */,
 				CB1757452048EA64001EA978 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

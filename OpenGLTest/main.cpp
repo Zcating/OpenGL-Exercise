@@ -133,35 +133,29 @@ int main()
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
-    
-    GLuint VBO, boxVAO;
-    glGenVertexArrays(1, &boxVAO);
+
+    unsigned int VBO, boxVAO, lightVAO;
     glGenBuffers(1, &VBO);
-    glBindVertexArray(boxVAO);
-    
+    glGenVertexArrays(1, &lightVAO);
+    glGenVertexArrays(1, &boxVAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
-    // Position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)0);
-    glEnableVertexAttribArray(0);
-    
-    glBindVertexArray(0); // Unbind VAO
-    
-    GLuint lightVAO;
-    glGenVertexArrays(1, &lightVAO);
+    glBindVertexArray(boxVAO);
     glBindVertexArray(lightVAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+    
+    // position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
     
-    
-
     
     // Game loop
     while (!glfwWindowShouldClose(window)) {
-        glfwPollEvents();
         
         float currentFrame = glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -169,46 +163,50 @@ int main()
         
         // Render
         // Clear the colorbuffer
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT |  GL_DEPTH_BUFFER_BIT);
         
         // Activate shader
         ourShader.use();
+        lampShader.use();
         
-        ourShader.setInt("boxTexture", 0);
-        ourShader.setInt("smileTexture", 1);
-        ourShader.setFloat("mixValue", mixValue);
+//        ourShader.setInt("boxTexture", 0);
+//        ourShader.setInt("smileTexture", 1);
+//        ourShader.setFloat("mixValue", mixValue);
         
-        glm::mat4 view;
-        glm::mat4 projection;
+        glm::mat4 view = camera.GetViewMatrix();
+        glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
         glm::mat4 model;
-        view = camera.GetViewMatrix();
-        projection = glm::perspective(glm::radians(45.0f), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
 
         ourShader.setMat4f("view", view);
         ourShader.setMat4f("projection", projection);
         ourShader.setMat4f("mode", model);
         
-        ourShader.setVec3("objectColor", glm::vec3(1.0f, 0.5f, 0.31f));
+        ourShader.setVec3("boxColor", glm::vec3(1.0f, 0.5f, 0.31f));
         ourShader.setVec3("lightColor",  glm::vec3(1.0f, 1.0f, 1.0f));
-        
-        model = glm::mat4();
-        model = glm::translate(model, glm::vec3(1.2f, 1.0f, 2.0f));
-        model = glm::scale(model, glm::vec3(0.2f));
-        lampShader.use();
-        lampShader.setMat4f("projection", projection);
-        lampShader.setMat4f("view", view);
-        lampShader.setMat4f("model", model);
-        
         // render box
         glBindVertexArray(boxVAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         
+        
+        model = glm::mat4();
+        model = glm::translate(model, glm::vec3(1.2f, 1.0f, 2.0f));
+        model = glm::scale(model, glm::vec3(0.2f));
+        lampShader.setMat4f("projection", projection);
+        lampShader.setMat4f("view", view);
+        lampShader.setMat4f("model", model);
+
+        // render lamp
+        glBindVertexArray(lightVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        
         // Swap the screen buffers
         glfwSwapBuffers(window);
+        glfwPollEvents();
     }
     // Properly de-allocate all resources once they've outlived their purpose
     glDeleteVertexArrays(1, &boxVAO);
+    glDeleteVertexArrays(1, &lightVAO);
     glDeleteBuffers(1, &VBO);
     // Terminate GLFW, clearing any resources allocated by GLFW.
     glfwTerminate();
