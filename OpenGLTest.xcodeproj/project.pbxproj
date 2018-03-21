@@ -697,12 +697,12 @@
 				CB17574B2048F20C001EA978 /* Shader.cpp */,
 				CB963E0D2058167400BE41D1 /* GLTexture.hpp */,
 				CB963E0C2058167400BE41D1 /* GLTexture.cpp */,
-				CB17574A2048F20C001EA978 /* triangle.fsh */,
-				CB17574D2048F20C001EA978 /* triangle.vsh */,
 				CB7B9D05205CE92E005E4609 /* Camera.cpp */,
 				CB7B9D06205CE92E005E4609 /* Camera.hpp */,
-				CB7B9D32205EA19F005E4609 /* lamp.vsh */,
+				CB17574A2048F20C001EA978 /* triangle.fsh */,
+				CB17574D2048F20C001EA978 /* triangle.vsh */,
 				CB7B9D33205EA1B2005E4609 /* lamp.fsh */,
+				CB7B9D32205EA19F005E4609 /* lamp.vsh */,
 			);
 			path = OpenGLTest;
 			sourceTree = "<group>";
