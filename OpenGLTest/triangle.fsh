@@ -7,11 +7,15 @@ struct Material {
 };
 
 struct Light {
-//    vec3 position;
-    vec3 direction;
+    vec3 position;
+//    vec3 direction;
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
+    
+    float constant;
+    float linear;
+    float quadratic;
 };
 
 out vec4 fragColor;
@@ -32,8 +36,8 @@ void main()
 
     // 漫反射
     vec3 normal = normalize(vertexNormal);
-//    vec3 lightDirection = normalize(light.position - fragPosition);
-    vec3 lightDirection = normalize(-light.direction);
+    vec3 lightDirection = normalize(light.position - fragPosition);
+//    vec3 lightDirection = normalize(-light.direction);
     float diff = max(dot(normal, lightDirection), 0.0);
     vec3 diffuse = light.diffuse * diff * texture(material.diffuse, textureCoordinates).rgb;
     
@@ -43,7 +47,12 @@ void main()
     float spec = pow(max(dot(viewDirection, reflectDirection), 0.0), material.shininess);
     vec3 specular = light.specular * (spec * texture(material.specular, textureCoordinates).rgb);
     
+    float distance    = length(light.position - fragPosition);
+    float attenuation = 1.0 / (light.constant + light.linear * distance +
+                               light.quadratic * (distance * distance));
+    
+    
     // Phong Shader mai
-    vec3 result = (ambient + diffuse + specular);
+    vec3 result = (ambient + diffuse + specular) * attenuation;
     fragColor = vec4(result, 1.0);
 }

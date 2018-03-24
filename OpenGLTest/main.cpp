@@ -166,6 +166,13 @@ int main()
     
     glBindVertexArray(0);
     
+    GLuint lightVAO;
+    glGenVertexArrays(1, &lightVAO);
+    glBindVertexArray(lightVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    glBindVertexArray(0);
     
     
     // Game loop
@@ -193,11 +200,15 @@ int main()
         lightingShader.setVec3("viewPosition", camera.Position);
 
         //设置光照
-//        lightingShader.setVec3("light.position", lightPos);
-        lightingShader.setVec3("light.direction", -0.2f, -1.0f, -0.3f);
+        lightingShader.setVec3("light.position", lightPos);
+//        lightingShader.setVec3("light.direction", -0.2f, -1.0f, -0.3f);
         lightingShader.setVec3("light.ambient",  0.2f, 0.2f, 0.2f);
         lightingShader.setVec3("light.diffuse",  0.5f, 0.5f, 0.5f);
         lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+        
+        lightingShader.setFloat("light.constant",  1.0f);
+        lightingShader.setFloat("light.linear",    0.09f);
+        lightingShader.setFloat("light.quadratic", 0.032f);
         
         // 设置材质
         lightingShader.setInt("material.diffuse", 0);
@@ -235,6 +246,20 @@ int main()
 //        glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
+        
+        lampShader.use();
+        
+        model = glm::mat4();
+        model = glm::translate(model, lightPos);
+        model = glm::scale(model, glm::vec3(0.2f));
+        lampShader.setMat4("model", model);
+        lampShader.setMat4("view", view);
+        lampShader.setMat4("projection", projection);
+        
+        // Draw the light object (using light's vertex attributes)
+        glBindVertexArray(lightVAO);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
         
         // Swap the screen buffers
         glfwSwapBuffers(window);
