@@ -344,6 +344,8 @@
 		CB963E0D2058167400BE41D1 /* GLTexture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLTexture.hpp; sourceTree = "<group>"; };
 		CBC913982054105A003C14B6 /* libglfw.3.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.3.dylib; path = ../../../../../usr/local/lib/libglfw.3.3.dylib; sourceTree = "<group>"; };
 		CBC9139A20541708003C14B6 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		CBE23D4B2062A567005CDABC /* container2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2.png; sourceTree = "<group>"; };
+		CBE23D4C2062AD71005CDABC /* container2_specular.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = container2_specular.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,6 +672,8 @@
 		CB1757302048E953001EA978 = {
 			isa = PBXGroup;
 			children = (
+				CBE23D4C2062AD71005CDABC /* container2_specular.png */,
+				CBE23D4B2062A567005CDABC /* container2.png */,
 				CB963DED2056C15D00BE41D1 /* container.jpg */,
 				CB963E092056C93C00BE41D1 /* awesomeface.png */,
 				CB17573B2048E953001EA978 /* OpenGLTest */,
