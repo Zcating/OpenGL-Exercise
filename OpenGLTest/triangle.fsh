@@ -7,7 +7,8 @@ struct Material {
 };
 
 struct Light {
-    vec3 position;
+//    vec3 position;
+    vec3 direction;
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
@@ -31,7 +32,8 @@ void main()
 
     // 漫反射
     vec3 normal = normalize(vertexNormal);
-    vec3 lightDirection = normalize(light.position - fragPosition);
+//    vec3 lightDirection = normalize(light.position - fragPosition);
+    vec3 lightDirection = normalize(-light.direction);
     float diff = max(dot(normal, lightDirection), 0.0);
     vec3 diffuse = light.diffuse * diff * texture(material.diffuse, textureCoordinates).rgb;
     
