@@ -15,7 +15,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
-
+#include <glm.hpp>
 // Other includes
 #include "Shader.hpp"
 #include "Camera.hpp"
@@ -81,11 +81,11 @@ int main()
     
     
     // Build and compile our shader program
-    Shader lightingShader("/Users/zcating/Project/MyGithub/OpenGLTest/OpenGLTest/triangle.vsh", "/Users/zcating/Project/MyGithub/OpenGLTest/OpenGLTest/triangle.fsh");
-    Shader lampShader("/Users/zcating/Project/MyGithub/OpenGLTest/OpenGLTest/lamp.vsh", "/Users/zcating/Project/MyGithub/OpenGLTest/OpenGLTest/lamp.fsh");
+    Shader lightingShader("/Users/zcating/Project/MyGithub/OpenGLTest/sources/triangle.vsh", "/Users/zcating/Project/MyGithub/OpenGLTest/sources/triangle.fsh");
+    Shader lampShader("/Users/zcating/Project/MyGithub/OpenGLTest/sources/lamp.vsh", "/Users/zcating/Project/MyGithub/OpenGLTest/sources/lamp.fsh");
 
-    GLTexture boxTexture = GLTexture("/Users/zcating/Project/MyGithub/OpenGLTest/container2.png");
-    GLTexture specularBoxTexture = GLTexture("/Users/zcating/Project/MyGithub/OpenGLTest/container2_specular.png");
+    GLTexture boxTexture = GLTexture("/Users/zcating/Project/MyGithub/OpenGLTest/resources/container2.png");
+    GLTexture specularBoxTexture = GLTexture("/Users/zcating/Project/MyGithub/OpenGLTest/resources/container2_specular.png");
     // Set up vertex data (and buffer(s)) and attribute pointers
     float vertices[] = {
         // positions          // normals           // texture coords
