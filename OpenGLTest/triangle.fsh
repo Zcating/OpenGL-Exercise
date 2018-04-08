@@ -21,6 +21,8 @@ struct Light {
     float quadratic;
 };
 
+
+
 out vec4 fragColor;
 
 in vec2 textureCoordinates;
@@ -64,3 +66,27 @@ void main()
     vec3 result = (ambient + diffuse + specular) * attenuation;
     fragColor = vec4(result, 1.0);
 }
+
+
+struct DirectiveLight {
+    vec3 direction;
+    vec3 ambient;
+    vec3 diffuse;
+    vec3 specular;
+};
+
+uniform DirectiveLight directiveLight;
+
+vec3 calculateDirectiveLight(DirectiveLight directiveLight, vec3 normal, vec3 viewDirection, Material material) {
+    vec3 lightDirection = normalize(-directiveLight.direction);
+    float diffuse = max(dot(normal, lightDirection), 0.0);
+    
+    vec3 reflectDirection = reflect(-lightDirection, normal);
+    float specular = pow(max(dot(viewDirection, refectDirection), 0.0), material.shininess);
+    vec3 ambient = light.ambient * vec3();
+    vec3 diffuse = light.diffuse * diffuse * vec3(texture(material.diffuse, textureCoordinates));
+    vec3 specular = light.specular * spec * vec3(texture(material.specular, textureCoordinates));
+    return (ambient + diffuse + specular);
+}
+
+
