@@ -9,10 +9,15 @@
 #ifndef Mesh_hpp
 #define Mesh_hpp
 
-#include <glad/glad.h>
-#include <glm/glm.hpp>
 #include <string>
 #include <vector>
+
+#include <glad/glad.h>
+#include <glm/glm.hpp>
+
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
 #include "Shader.hpp"
 
@@ -25,6 +30,7 @@ struct Vertex {
 struct Texture {
     unsigned int id;
     std::string type;
+    aiString path;
 };
 
 class Mesh {
@@ -35,7 +41,7 @@ public:
     std::vector<Texture> textures;
     /*  函数  */
     Mesh(const std::vector<Vertex>& vertices,const std::vector<unsigned int>& indices,const std::vector<Texture>& textures);
-    void draw(const Shader& shader);
+    void draw(Shader& shader);
 private:
     /*  渲染数据  */
     unsigned int VAO, VBO, EBO;

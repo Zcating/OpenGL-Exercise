@@ -66,8 +66,6 @@ vec3 CalculateDirectionalLight(DirectionalLight directionalLight, vec3 normal, v
     vec3 reflectDirection = reflect(-lightDirection, normal);
     float specular = pow(max(dot(viewDirection, reflectDirection), 0.0), material.shininess);
     
-    
-    
     vec3 ambientVector = directionalLight.ambient * vec3(texture(material.diffuse, coordinates));
     vec3 diffuseVector = directionalLight.diffuse * diffuse * vec3(texture(material.diffuse, coordinates));
     vec3 specularVector = directionalLight.specular * specular * vec3(texture(material.specular, coordinates));
@@ -97,17 +95,18 @@ vec3 CalculatePointLight(PointLight light, vec3 normal, vec3 fragPosition, vec3 
     return (ambientVector + diffuseVector + specularVector);
 }
 
-vec3 CalcSpotLight(SpotLight light, vec3 normal, vec3 fragPosition, vec3 viewDirection, Material material, vec2 coordinates)
+vec3 CalculateSpotLight(SpotLight light, vec3 normal, vec3 fragPosition, vec3 viewDirection, Material material, vec2 coordinates)
 {
     vec3 lightDirection = normalize(light.position - fragPosition);
-    //
+    
+    // 漫反射
     float diffuse = max(dot(normal, lightDirection), 0.0);
     
-    // specular shading
+    // 镜面反射
     vec3 reflectDirection = reflect(-lightDirection, normal);
     float specular = pow(max(dot(viewDirection, reflectDirection), 0.0), material.shininess);
    
-    // attenuation
+    // 衰减
     float distance = length(light.position - fragPosition);
     float attenuation = 1.0 / (light.constant + light.linear * distance + light.quadratic * (distance * distance));
     
@@ -137,7 +136,7 @@ void main()
     {
         result += CalculatePointLight(pointLights[i], normal, fragPosition, viewDirection, material, textureCoordinates);
     }
-    result += CalcSpotLight(spotLight, normal, fragPosition, viewDirection, material, textureCoordinates);
+    result += CalculateSpotLight(spotLight, normal, fragPosition, viewDirection, material, textureCoordinates);
 
     fragColor = vec4(result, 1.0);
 }

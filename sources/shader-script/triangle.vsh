@@ -13,8 +13,8 @@ out vec2 textureCoordinates;
 
 void main()
 {
-    gl_Position = projection * view * model * vec4(aPosition, 1.0);
     vertexNormal = mat3(transpose(inverse(model))) * aNormal;
     fragPosition = vec3(model * vec4(aPosition, 1.0));
+    gl_Position = projection * view * model * vec4(fragPosition, 1.0);
     textureCoordinates = aTextureCoordinates;
 }

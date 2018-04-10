@@ -10,12 +10,12 @@
 #define GLTexture_hpp
 
 #include <cstdio>
+#include <string>
 //#include <OpenGL/OpenGL.h>
 //#include <OpenGL/gl.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <string>
-#include "SOIL.h"
+#include <STBI/stbi_image.h>
 
 class GLTexture {
 private:
