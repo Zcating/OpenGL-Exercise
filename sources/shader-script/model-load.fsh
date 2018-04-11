@@ -44,17 +44,17 @@ vec3 CalculatePointLight(PointLight light, vec3 normal, vec3 fragPosition, vec3 
     float specular = pow(max(dot(viewDirection, reflectDirection), 0.0), shininess);
     
     // 衰减
-    float dist = length(light.position - fragPosition);
-    float attenuation = 1.0 / (light.constant + light.linear * dist + light.quadratic * (dist * dist));
-    
-//    vec3 ambientVector = light.ambient * vec3(texture(material.diffuse, coordinates));
-//    vec3 diffuseVector = light.diffuse * diffuse * vec3(texture(material.diffuse, coordinates));
-//    vec3 specularVector = light.specular * specular * vec3(texture(material.specular, coordinates));
-//    return (ambientVector + diffuseVector + specularVector);
-    vec3 ambientVector = light.ambient * vec3(texture(material.diffuse, coordinates)) * attenuation;
-    vec3 diffuseVector = light.diffuse * diffuse * vec3(texture(material.diffuse, coordinates)) * attenuation;
-    vec3 specularVector = light.specular * specular * vec3(texture(material.specular, coordinates)) * attenuation;
+//    float dist = length(light.position - fragPosition);
+//    float attenuation = 1.0 / (light.constant + light.linear * dist + light.quadratic * (dist * dist));
+//
+    vec3 ambientVector = light.ambient * vec3(texture(material.diffuse, coordinates));
+    vec3 diffuseVector = light.diffuse * diffuse * vec3(texture(material.diffuse, coordinates));
+    vec3 specularVector = light.specular * specular * vec3(texture(material.specular, coordinates));
     return (ambientVector + diffuseVector + specularVector);
+//    vec3 ambientVector = light.ambient * vec3(texture(material.diffuse, coordinates)) * attenuation;
+//    vec3 diffuseVector = light.diffuse * diffuse * vec3(texture(material.diffuse, coordinates)) * attenuation;
+//    vec3 specularVector = light.specular * specular * vec3(texture(material.specular, coordinates)) * attenuation;
+//    return (ambientVector + diffuseVector + specularVector);
 }
 
 void main()

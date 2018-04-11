@@ -10,9 +10,11 @@
 
 
 class Shader {
+    std::string _readShaderCodeFromFile(const GLchar* path);
 public:
     GLuint program;
     Shader(const GLchar* vertexPath, const GLchar* fragmentPath);
+    Shader(const GLchar* vertexPath, const GLchar* fragmentPath, const GLchar* geometryPath);
     void use();
     
     void setInt(const std::string &name, GLint object);

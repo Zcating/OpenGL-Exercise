@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CB1757452048EA64001EA978 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1757442048EA64001EA978 /* OpenGL.framework */; };
-		CB3644B0207B0CE400328A5C /* lamp.fsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1CC207A5CA300BE2B93 /* lamp.fsh */; };
-		CB3644B1207B0CE400328A5C /* lamp.vsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1CF207A5CA300BE2B93 /* lamp.vsh */; };
+		CB3644B0207B0CE400328A5C /* light-bulb.fsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1CC207A5CA300BE2B93 /* light-bulb.fsh */; };
+		CB3644B1207B0CE400328A5C /* light-bulb.vsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1CF207A5CA300BE2B93 /* light-bulb.vsh */; };
 		CB3644B2207B0CE400328A5C /* triangle.vsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1CB207A5CA300BE2B93 /* triangle.vsh */; };
 		CB3644B3207B0CE400328A5C /* triangle.fsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1D1207A5CA300BE2B93 /* triangle.fsh */; };
 		CB3644B4207B0CE400328A5C /* container.jpg in Copy Files */ = {isa = PBXBuildFile; fileRef = CB9EC1D5207A5CA300BE2B93 /* container.jpg */; };
@@ -24,9 +24,7 @@
 		CB899C7B207C922100C5296D /* model-load.fsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB899C7A207C921000C5296D /* model-load.fsh */; };
 		CB899C7C207C922100C5296D /* model-load.vsh in Copy Files */ = {isa = PBXBuildFile; fileRef = CB899C79207C91F800C5296D /* model-load.vsh */; };
 		CB899C7D207C935B00C5296D /* nanosuit in Copy Files */ = {isa = PBXBuildFile; fileRef = CB899C78207C738F00C5296D /* nanosuit */; };
-		CB963E032056C21B00BE41D1 /* libSOILibrary.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CB963DF22056C1E500BE41D1 /* libSOILibrary.dylib */; };
-		CB963E042056C27A00BE41D1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1757442048EA64001EA978 /* OpenGL.framework */; };
-		CB963E0B2056CF1200BE41D1 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB963E0A2056CF1200BE41D1 /* CoreFoundation.framework */; };
+		CB899C83207DFB1500C5296D /* light-bulb.obj in Copy Files */ = {isa = PBXBuildFile; fileRef = CB899C82207DF86900C5296D /* light-bulb.obj */; };
 		CB9EC1D9207A5CAC00BE2B93 /* GLTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9EC1C9207A5CA300BE2B93 /* GLTexture.cpp */; };
 		CB9EC1DA207A5CAC00BE2B93 /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9EC1CA207A5CA300BE2B93 /* Camera.cpp */; };
 		CB9EC1DB207A5CAC00BE2B93 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CB9EC1CD207A5CA300BE2B93 /* Shader.cpp */; };
@@ -49,11 +47,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				CB899C83207DFB1500C5296D /* light-bulb.obj in Copy Files */,
 				CB899C7D207C935B00C5296D /* nanosuit in Copy Files */,
 				CB899C7B207C922100C5296D /* model-load.fsh in Copy Files */,
 				CB899C7C207C922100C5296D /* model-load.vsh in Copy Files */,
-				CB3644B0207B0CE400328A5C /* lamp.fsh in Copy Files */,
-				CB3644B1207B0CE400328A5C /* lamp.vsh in Copy Files */,
+				CB3644B0207B0CE400328A5C /* light-bulb.fsh in Copy Files */,
+				CB3644B1207B0CE400328A5C /* light-bulb.vsh in Copy Files */,
 				CB3644B2207B0CE400328A5C /* triangle.vsh in Copy Files */,
 				CB3644B3207B0CE400328A5C /* triangle.fsh in Copy Files */,
 				CB3644B4207B0CE400328A5C /* container.jpg in Copy Files */,
@@ -133,8 +132,8 @@
 		CB899C78207C738F00C5296D /* nanosuit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = nanosuit; sourceTree = "<group>"; };
 		CB899C79207C91F800C5296D /* model-load.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = "model-load.vsh"; sourceTree = "<group>"; };
 		CB899C7A207C921000C5296D /* model-load.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = "model-load.fsh"; sourceTree = "<group>"; };
+		CB899C82207DF86900C5296D /* light-bulb.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "light-bulb.obj"; sourceTree = "<group>"; };
 		CB963DEB2056BFB300BE41D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CB963DF22056C1E500BE41D1 /* libSOILibrary.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSOILibrary.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB963E0A2056CF1200BE41D1 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		CB9EC0C3207A5C7400BE2B93 /* vec4.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = vec4.hpp; sourceTree = "<group>"; };
 		CB9EC0C4207A5C7400BE2B93 /* integer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integer.hpp; sourceTree = "<group>"; };
@@ -396,10 +395,10 @@
 		CB9EC1C9207A5CA300BE2B93 /* GLTexture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLTexture.cpp; sourceTree = "<group>"; };
 		CB9EC1CA207A5CA300BE2B93 /* Camera.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
 		CB9EC1CB207A5CA300BE2B93 /* triangle.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.vsh; sourceTree = "<group>"; };
-		CB9EC1CC207A5CA300BE2B93 /* lamp.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lamp.fsh; sourceTree = "<group>"; };
+		CB9EC1CC207A5CA300BE2B93 /* light-bulb.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = "light-bulb.fsh"; sourceTree = "<group>"; };
 		CB9EC1CD207A5CA300BE2B93 /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
 		CB9EC1CE207A5CA300BE2B93 /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
-		CB9EC1CF207A5CA300BE2B93 /* lamp.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = lamp.vsh; sourceTree = "<group>"; };
+		CB9EC1CF207A5CA300BE2B93 /* light-bulb.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = "light-bulb.vsh"; sourceTree = "<group>"; };
 		CB9EC1D0207A5CA300BE2B93 /* GLTexture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GLTexture.hpp; sourceTree = "<group>"; };
 		CB9EC1D1207A5CA300BE2B93 /* triangle.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = triangle.fsh; sourceTree = "<group>"; };
 		CB9EC1D2207A5CA300BE2B93 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -418,19 +417,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB963E032056C21B00BE41D1 /* libSOILibrary.dylib in Frameworks */,
 				CB1757452048EA64001EA978 /* OpenGL.framework in Frameworks */,
 				CB899C0B207B68A500C5296D /* libassimp.4.1.0.dylib in Frameworks */,
 				CB899BA6207B173200C5296D /* libglfw3.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB963DEF2056C1E500BE41D1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CB963E0B2056CF1200BE41D1 /* CoreFoundation.framework in Frameworks */,
-				CB963E042056C27A00BE41D1 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +432,6 @@
 				CB9EC1C8207A5CA300BE2B93 /* sources */,
 				CB9EC0B2207A5C7400BE2B93 /* libs */,
 				CB9EC1D4207A5CA300BE2B93 /* resources */,
-				CB17573A2048E953001EA978 /* Products */,
 				CB1757432048EA64001EA978 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -452,9 +440,9 @@
 			isa = PBXGroup;
 			children = (
 				CB1757392048E953001EA978 /* OpenGLTest */,
-				CB963DF22056C1E500BE41D1 /* libSOILibrary.dylib */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		CB1757432048EA64001EA978 /* Frameworks */ = {
@@ -622,8 +610,8 @@
 			children = (
 				CB899C7A207C921000C5296D /* model-load.fsh */,
 				CB899C79207C91F800C5296D /* model-load.vsh */,
-				CB9EC1CC207A5CA300BE2B93 /* lamp.fsh */,
-				CB9EC1CF207A5CA300BE2B93 /* lamp.vsh */,
+				CB9EC1CC207A5CA300BE2B93 /* light-bulb.fsh */,
+				CB9EC1CF207A5CA300BE2B93 /* light-bulb.vsh */,
 				CB9EC1CB207A5CA300BE2B93 /* triangle.vsh */,
 				CB9EC1D1207A5CA300BE2B93 /* triangle.fsh */,
 			);
@@ -960,6 +948,8 @@
 		CB9EC1D4207A5CA300BE2B93 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB899C82207DF86900C5296D /* light-bulb.obj */,
+				CB17573A2048E953001EA978 /* Products */,
 				CB899C78207C738F00C5296D /* nanosuit */,
 				CB9EC1D5207A5CA300BE2B93 /* container.jpg */,
 				CB9EC1D6207A5CA300BE2B93 /* container2_specular.png */,
@@ -997,16 +987,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		CB963DF02056C1E500BE41D1 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		CB1757382048E953001EA978 /* OpenGLTest */ = {
 			isa = PBXNativeTarget;
@@ -1026,23 +1006,6 @@
 			productReference = CB1757392048E953001EA978 /* OpenGLTest */;
 			productType = "com.apple.product-type.tool";
 		};
-		CB963DF12056C1E500BE41D1 /* SOILibrary */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CB963DF32056C1E600BE41D1 /* Build configuration list for PBXNativeTarget "SOILibrary" */;
-			buildPhases = (
-				CB963DEE2056C1E500BE41D1 /* Sources */,
-				CB963DEF2056C1E500BE41D1 /* Frameworks */,
-				CB963DF02056C1E500BE41D1 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SOILibrary;
-			productName = SOILibrary;
-			productReference = CB963DF22056C1E500BE41D1 /* libSOILibrary.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1053,10 +1016,6 @@
 				ORGANIZATIONNAME = com.zcating;
 				TargetAttributes = {
 					CB1757382048E953001EA978 = {
-						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
-					};
-					CB963DF12056C1E500BE41D1 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
@@ -1075,7 +1034,6 @@
 			projectRoot = "";
 			targets = (
 				CB1757382048E953001EA978 /* OpenGLTest */,
-				CB963DF12056C1E500BE41D1 /* SOILibrary */,
 			);
 		};
 /* End PBXProject section */
@@ -1092,13 +1050,6 @@
 				CB899C14207C4FFB00C5296D /* Model.cpp in Sources */,
 				CB9EC1DC207A5CAC00BE2B93 /* main.cpp in Sources */,
 				CB9EC1D9207A5CAC00BE2B93 /* GLTexture.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CB963DEE2056C1E500BE41D1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1256,32 +1207,6 @@
 			};
 			name = Release;
 		};
-		CB963DF42056C1E600BE41D1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UK6KA2LHR;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		CB963DF52056C1E600BE41D1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = NO;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UK6KA2LHR;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1299,15 +1224,6 @@
 			buildConfigurations = (
 				CB1757412048E953001EA978 /* Debug */,
 				CB1757422048E953001EA978 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CB963DF32056C1E600BE41D1 /* Build configuration list for PBXNativeTarget "SOILibrary" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CB963DF42056C1E600BE41D1 /* Debug */,
-				CB963DF52056C1E600BE41D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

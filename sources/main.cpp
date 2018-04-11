@@ -84,8 +84,10 @@ int main()
     
     // Build and compile our shader program
     Shader shader("./model-load.vsh", "./model-load.fsh");
-    
     Model nanosuit("./nanosuit/nanosuit.obj");
+    
+    Shader lightShader("./light-bulb.vsh", "./light-bulb.fsh");
+    Model lightBulb("./light-bulb.obj");
     
     // Game loop
     while (!glfwWindowShouldClose(window)) {
@@ -94,16 +96,26 @@ int main()
         lastFrame = currentFrame;
         
         // Clear the colorbuffer
-        glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = camera.getViewMatrix();
+        glm::vec3 position = glm::vec3(1.f * cos(glfwGetTime()), 1.f, 0.2f * cos(glfwGetTime()) + 0.5);
+        lightShader.use();
+        lightShader.setMat4("projection", projection);
+        lightShader.setMat4("view", view);
+        lightBulb.setPosition(position);
+        lightBulb.setScale(0.02, 0.02, 0.02);
+        lightBulb.draw(lightShader);
         
         shader.use();
         
-        shader.setFloat("shininess", 256.0f);
+        shader.setFloat("shininess", 32.0f);
         shader.setVec3("viewPosition", camera.Position);
         
         // light properties
-        shader.setVec3("light.position", 5 * cos(glfwGetTime()) + 1, 5 * cos(glfwGetTime()) + 1, 5* cos(glfwGetTime()) + 1);
+        shader.setVec3("light.position", position);
         shader.setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
         shader.setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
         shader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
@@ -112,20 +124,14 @@ int main()
         shader.setFloat("light.linear",    0.09f);
         shader.setFloat("light.quadratic", 0.032f);
         
-        // view/projection transformations
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)WIDTH / (float)HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = camera.getViewMatrix();
         shader.setMat4("projection", projection);
         shader.setMat4("view", view);
         
-        // render the loaded model
-        glm::mat4 viewModel;
-        viewModel = glm::translate(viewModel, glm::vec3(0.0f, -1.75f, 0.0f));
-        viewModel = glm::scale(viewModel, glm::vec3(0.7f, 0.7f, 0.5f));
-        shader.setMat4("model", viewModel);
-//        nanosuit.setPosition(glm::vec3(0.0f, -1.75f, 0.0f));
+        nanosuit.setPosition(glm::vec3(0.0f, -1.f, 0.0f));
+        nanosuit.setScale(glm::vec3(0.3f, 0.3f, 0.3f));
         nanosuit.draw(shader);
-
+        
+        
         // Swap the screen buffers
         glfwSwapBuffers(window);
         

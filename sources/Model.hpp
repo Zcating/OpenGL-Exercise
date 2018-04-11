@@ -33,7 +33,7 @@ public:
     glm::vec3 position;
     glm::vec3 scale;
     
-    Model(const std::string& path) {
+    Model(const std::string& path):position(glm::vec3(0.f, 0.f, 0.f)), scale(glm::vec3(1.f, 1.f, 1.f)) {
         _loadModel(path);
     }
     
@@ -41,7 +41,10 @@ public:
         for (GLint i = 0; i < meshes.size(); i++) {
             meshes[i].draw(shader);
         }
-        shader.setVec3("model", position);
+        glm::mat4 viewModel;
+        viewModel = glm::translate(viewModel, position);
+        viewModel = glm::scale(viewModel, scale);
+        shader.setMat4("model", viewModel);
         
     }
     
